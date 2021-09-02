@@ -1,9 +1,9 @@
-package com.dvs.repositories;
+package com.dvs.bookstore.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.dvs.domain.Livro;
+import com.dvs.bookstore.domain.Livro;
 
 @Repository
 public interface LivroRepository extends JpaRepository<Livro, Integer> {

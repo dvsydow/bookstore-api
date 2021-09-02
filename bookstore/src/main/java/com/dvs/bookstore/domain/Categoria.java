@@ -1,4 +1,4 @@
-package com.dvs.domain;
+package com.dvs.bookstore.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
