@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.dvs.bookstore.domain.Categoria;
 import com.dvs.bookstore.dtos.CategoriaDTO;
 import com.dvs.bookstore.repositories.CategoriaRepository;
+import com.dvs.bookstore.service.exceptions.DataIntegrityViolationException;
 import com.dvs.bookstore.service.exceptions.ObjectNotFoundException;
 
 @Service
@@ -44,6 +45,11 @@ public class CategoriaService {
 
 	public void delete(Integer id) {
 		findById(id);
-		repository.deleteById(id);
+		try {
+			repository.deleteById(id);
+		} catch (Exception e) {
+			throw new DataIntegrityViolationException("Categoria não pode ser deletada! Possui livros associados.");
+		}
+		
 	}
 }
