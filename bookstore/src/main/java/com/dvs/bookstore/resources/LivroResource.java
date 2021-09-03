@@ -39,22 +39,22 @@ public class LivroResource {
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<LivroDTO>> findAll(){
-		List<Livro> list = service.findAll();
+	public ResponseEntity<List<LivroDTO>> findAll(@RequestParam(value = "categoria", defaultValue = "0") Integer id_cat){
+		List<Livro> list = service.findAll(id_cat);
 		List<LivroDTO> listDto = list.stream().map(obj -> new LivroDTO(obj)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDto);
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<LivroDTO> update(@PathVariable Integer id, @Valid @RequestBody LivroDTO objDto){
+	public ResponseEntity<Livro> update(@PathVariable Integer id, @Valid @RequestBody Livro objDto){
 		Livro newObj = service.update(id, objDto);
-		return ResponseEntity.ok().body(new LivroDTO(newObj));
+		return ResponseEntity.ok().body(newObj);
 	}
 	
 	@PatchMapping(value = "/{id}")
-	public ResponseEntity<LivroDTO> updatePatch(@PathVariable Integer id, @Valid @RequestBody LivroDTO objDto){
+	public ResponseEntity<Livro> updatePatch(@PathVariable Integer id, @Valid @RequestBody Livro objDto){
 		Livro newObj = service.update(id, objDto);
-		return ResponseEntity.ok().body(new LivroDTO(newObj));
+		return ResponseEntity.ok().body(newObj);
 	}
 	
 	@DeleteMapping(value = "/{id}")
