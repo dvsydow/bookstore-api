@@ -3,9 +3,12 @@ package com.dvs.bookstore.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.dvs.bookstore.domain.Categoria;
 import com.dvs.bookstore.domain.Livro;
 import com.dvs.bookstore.domain.Livro;
 import com.dvs.bookstore.dtos.LivroDTO;
@@ -33,10 +36,6 @@ public class LivroService {
 		return repository.findAllByCategoria(id_cat);
 	}
 	
-	public Livro create(Livro obj) {
-		obj.setId(null);
-		return repository.save(obj);
-	}
 
 	public Livro update(Integer id, Livro obj) {
 		Livro newObj = findById(id);
@@ -54,5 +53,12 @@ public class LivroService {
 	public void delete(Integer id) {
 		findById(id);
 		repository.deleteById(id);
+	}
+
+	public Livro create(Integer id_cat, @Valid Livro obj) {
+		obj.setId(null);
+		Categoria cat = categoriaService.findById(id_cat);
+		obj.setCategoria(cat);
+		return repository.save(obj);
 	}
 }

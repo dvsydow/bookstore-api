@@ -67,7 +67,7 @@ public class LivroResource {
 	public ResponseEntity<Livro> create(@RequestParam(value = "categoria", defaultValue = "0") Integer id_cat,
 			@Valid @RequestBody Livro obj){
 		Livro newobj = service.create(id_cat, obj);
-		URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/livros/{id}").buildAndExpand(obj.getId()).toUri();
+		URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/livros/{id}").buildAndExpand(newobj.getId()).toUri();
 		//return ResponseEntity.created(uri).body(obj);
 		return ResponseEntity.created(uri).build();
 	}

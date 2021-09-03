@@ -12,7 +12,7 @@ import com.dvs.bookstore.domain.Livro;
 @Repository
 public interface LivroRepository extends JpaRepository<Livro, Integer> {
 
-	@Query("SELECT obj FROM LIVRO obj WHERE obj.categoria.id = :id_cat ORDER BY TITULO")
+	@Query("SELECT obj FROM Livro obj WHERE obj.categoria.id = :id_cat ORDER BY TITULO")
 	List<Livro> findAllByCategoria(@Param(value = "id_cat") Integer id_cat);
 
 }
