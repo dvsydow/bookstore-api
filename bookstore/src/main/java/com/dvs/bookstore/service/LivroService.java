@@ -41,7 +41,7 @@ public class LivroService {
 		Livro newObj = findById(id);
 		
 		updateData(newObj, obj);
-		return repository.save(obj);
+		return repository.save(newObj);
 	}
 
 	private void updateData(Livro newObj, Livro obj) {
