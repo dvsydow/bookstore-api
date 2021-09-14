@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.dvs.bookstore.domain.Livro;
-import com.dvs.bookstore.domain.Livro;
 import com.dvs.bookstore.dtos.LivroDTO;
 import com.dvs.bookstore.service.LivroService;
 

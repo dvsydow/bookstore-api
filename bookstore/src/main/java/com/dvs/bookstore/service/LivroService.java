@@ -10,10 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.dvs.bookstore.domain.Categoria;
 import com.dvs.bookstore.domain.Livro;
-import com.dvs.bookstore.domain.Livro;
-import com.dvs.bookstore.dtos.LivroDTO;
 import com.dvs.bookstore.repositories.LivroRepository;
-import com.dvs.bookstore.service.exceptions.DataIntegrityViolationException;
 import com.dvs.bookstore.service.exceptions.ObjectNotFoundException;
 
 @Service
